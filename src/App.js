@@ -4,20 +4,22 @@ import './App.css'
 import usePaperslip from './hooks/usePaperslip'
 
 function App() {
-  const { hash, read, stopWrite, write } = usePaperslip()
+  const { read, write } = usePaperslip()
+
+  const [isSending, setIsSending] = useState(false)
+  const [mode, setMode] = useState('write')
+  const [readContent, setReadContent] = useState('')
+  const [topic, setTopic] = useState('')
 
   const readStream = useRef()
+  const writeNet = useRef()
   const readInputRef = useRef()
   const writeInputRef = useRef()
 
-  const [topic, setTopic] = useState('')
-  const [readContent, setReadContent] = useState('')
-
   useEffect(() => {
     const query = window.location.search.substring(1)
-    if (query.split('=')?.[0] === 'topic') {
-      setTopic(query.split('=')?.[1])
-    }
+    setMode(query.split('=')?.[0] === 'read' ? 'read' : 'write')
+    setTopic(query.split('=')?.[1])
   }, [])
 
   useEffect(() => {
@@ -25,30 +27,38 @@ function App() {
       readStream.current = read(topic)
       readStream.current.on('data', (data) => {
         const string = data.toString('utf8')
-        console.log(data, string)
+        console.log(data, string, readStream.current)
         setReadContent(string)
       })
     }
   }, [read, readStream, topic])
 
-  const onWriteInputChange = useCallback(
-    (e) => {
-      const value = e.target.value
-      const net = write(topic, value)
-    },
-    [topic, write],
-  )
+  const onSend = useCallback(() => {
+    const message = writeInputRef.current.value
+    writeNet.current = write(topic, message)
+    console.log(writeNet.current)
+    setIsSending(true)
+  }, [topic, write])
 
   return (
     <div className="App">
-      <div className="read-content" ref={readInputRef}>
-        {readContent}
-      </div>
-      <input
-        className="write-content"
-        onChange={onWriteInputChange}
-        ref={writeInputRef}
-      ></input>
+      <div className="topic">{topic}</div>
+      {mode === 'read' && (
+        <div className="read-content" ref={readInputRef}>
+          {readContent}
+        </div>
+      )}
+      {mode === 'write' && (
+        <div>
+          <textarea className="write-content" ref={writeInputRef} />
+          {isSending && <div className="write-sending">Sending...</div>}
+          {!isSending && (
+            <button className="send-button" onClick={onSend}>
+              Send
+            </button>
+          )}
+        </div>
+      )}
     </div>
   )
 }

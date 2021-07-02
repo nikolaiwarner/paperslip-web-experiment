@@ -11,21 +11,46 @@
 }
 
 .read-content {
+  background-color: #fff;
   border-radius: 8px;
   border: 1px solid #e0e0e0;
-  height: 200px;
+  color: #000;
+  height: 300px;
   margin: 0 auto;
   padding: 10px;
   width: 200px;
 }
 
 .write-content {
+  background-color: #fff;
   border-radius: 8px;
   border: 1px solid #e0e0e0;
-  background-color: transparent;
-  height: 200px;
+  color: #000;
+  height: 300px;
   margin: 0 auto;
   padding: 10px;
+  text-align: center;
   width: 200px;
+}
+
+.topic {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.send-button {
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid #fff;
   color: #fff;
+  cursor: pointer;
+  display: block;
+  margin-top: 8px;
+  padding: 4px;
+  width: 100%;
+}
+
+.write-sending {
+  font-size: 14px;
+  margin-top: 12px;
 }

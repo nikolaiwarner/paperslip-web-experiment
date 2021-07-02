@@ -10428,10 +10428,9 @@ sockjs@^0.3.21:
     uuid "^3.4.0"
     websocket-driver "^0.7.4"
 
-sodium-javascript@~0.7.2:
+"sodium-javascript@https://github.com/okdistribute/sodium-javascript", sodium-javascript@~0.7.2:
   version "0.7.3"
-  resolved "https://registry.yarnpkg.com/sodium-javascript/-/sodium-javascript-0.7.3.tgz#8c49c3bfcbbc03dbc76c3e94417cd87237e4c43b"
-  integrity sha512-J2Zzj61bo41oBO4yEM9hTaNo3J98AcmFctjRg3D7+0A5cXdB1jlQOHV1qo2NavDU3BpqCfxdHW5UXCv565zh6Q==
+  resolved "https://github.com/okdistribute/sodium-javascript#70ed3dafd650ce1ecc1528ec420f5328a7bb39ce"
   dependencies:
     blake2b "^2.1.1"
     chacha20-universal "^1.0.4"

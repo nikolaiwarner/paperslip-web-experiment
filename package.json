@@ -16,6 +16,9 @@
     "duplexify": "4.1.1",
     "crypto-browserify": "3.12.0"
   },
+  "resolutions": {
+    "sodium-javascript": "https://github.com/okdistribute/sodium-javascript"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

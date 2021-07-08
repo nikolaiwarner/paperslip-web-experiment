@@ -1,6 +1,15 @@
+a {
+  color: #fff;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+}
+
 .App {
   align-items: center;
-  background-color: #282c34;
+  background-color: rgb(32, 33, 36);
   color: white;
   display: flex;
   flex-direction: column;
@@ -15,8 +24,8 @@
   border-radius: 8px;
   border: 1px solid #e0e0e0;
   color: #000;
-  height: 300px;
-  margin: 0 auto;
+  min-height: 200px;
+  margin: 16px;
   padding: 10px;
   width: 200px;
 }
@@ -26,10 +35,11 @@
   border-radius: 8px;
   border: 1px solid #e0e0e0;
   color: #000;
-  height: 300px;
-  margin: 0 auto;
+  margin: 16px;
+  min-height: 200px;
   padding: 10px;
   text-align: center;
+  text-align: left;
   width: 200px;
 }
 
@@ -46,11 +56,16 @@
   cursor: pointer;
   display: block;
   margin-top: 8px;
-  padding: 4px;
-  width: 100%;
+  margin: 0 auto;
+  padding: 4px 24px;
 }
 
 .write-sending {
   font-size: 14px;
   margin-top: 12px;
+  padding: 4px 24px;
+}
+
+hr {
+  width: 100%;
 }
